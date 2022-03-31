@@ -1,0 +1,33 @@
+<div *ngIf="pizzaCart.length>0"> 
+<mat-card *ngFor="let pizza of pizzaCart" class="pizza-card">
+<mat-card *ngIf="pizza" class="pizza-card">
+  <mat-card-header>
+    <mat-card-title><h3>{{ pizza.name | uppercase }} Details </h3></mat-card-title>
+    <mat-card-subtitle>{{pizza.pizza}}</mat-card-subtitle>
+  </mat-card-header>
+  <img src="{{pizza.image}}" alt="Photo of pizza">
+  <mat-card-content >
+    <ul>
+      <li>Base: {{pizza.base}}</li>
+      <li>Type {{pizza.type}}</li>
+      <li>Price: {{pizza.price}}</li>
+      
+      <li>Total Price: {{pizza.price*pizza.selectedPizzaCount}}</li>
+    </ul>
+
+  </mat-card-content>
+  <mat-card-actions class="pizza-card-bottom" *ngIf="pizza.isPizzaSelected">
+       
+    <button (click)="removeFromCart(pizza)" mat-raised-button>-</button>
+    <button disabled mat-raised-button>{{pizza.selectedPizzaCount}}</button>
+    <button (click)="addToCart(pizza)" mat-raised-button>+</button>
+  
+  </mat-card-actions>
+</mat-card>
+
+</mat-card>
+<div>
+  <h3>SubTotal: {{totalOrderPrice}}</h3>
+<button (click)="chekoutCart()" mat-raised-button>CheckOut</button>
+</div>
+</div>

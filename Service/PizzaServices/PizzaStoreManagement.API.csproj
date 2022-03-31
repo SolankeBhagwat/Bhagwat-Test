@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaStoreManagement.Common\PizzaStoreManagement.Common.csproj" />
+    <ProjectReference Include="..\PizzaStoreManagement.Services\PizzaStoreManagement.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>
