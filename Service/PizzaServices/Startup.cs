@@ -1,3 +1,4 @@
+using System.Net.Security;
 using DryIoc;
 using DryIoc.Microsoft.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
@@ -42,6 +43,8 @@ namespace PizzaServices
             services.AddDbContext<PizzaDbContext>(options => { });
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IPizzaService, PizzaService>();
+            services.AddTransient<IPizzaRepository, PizzaRepository>();
             //var serviceProvider = new Container(rules => rules.With(FactoryMethod.ConstructorWithResolvableArguments)).WithDependencyInjectionAdapter(services)
             //    .ConfigureServiceProvider<CompositionRoot>();
 
