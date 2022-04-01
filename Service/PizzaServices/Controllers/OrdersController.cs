@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using PizzaStoreManagement.Common.Entities;
 using PizzaStoreManagement.Services.Interface;
-using System.Collections.Generic;
 
 namespace PizzaStoreManagement.API.Controllers
 {
@@ -10,6 +10,7 @@ namespace PizzaStoreManagement.API.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrderService orderService;
+
         public OrdersController(IOrderService orderService)
         {
             this.orderService = orderService;
@@ -26,13 +27,15 @@ namespace PizzaStoreManagement.API.Controllers
         [HttpGet()]
         public Order GetOrder(int orderId)
         {
-            var orders = orderService.GetOrder(orderId);
+            var order = orderService.GetOrder(orderId);
 
-            return orders;
+            return order;
         }
-        [HttpPost]
-        public void PlaceOrder(PizzaOrder order){
-            
+
+        [HttpPost("place-order")]
+        public void PlaceOrder(PizzaOrder order)
+        {
+            orderService.PlaceOrder(order);
         }
     }
 }

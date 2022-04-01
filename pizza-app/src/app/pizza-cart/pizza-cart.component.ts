@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../order.service';
 import { Pizza } from '../pizza';
 import { PizzaDataSharingService } from '../pizza-data-sharing.service';
-import { PizzaService } from '../pizza.service';
+import { PizzaOrder } from '../pizza-order';
 
 @Component({
   selector: 'app-pizza-cart',
@@ -10,7 +11,7 @@ import { PizzaService } from '../pizza.service';
 })
 export class PizzaCartComponent implements OnInit {
   pizzaCart: Pizza[] = [];
-  constructor(private pizzaService:PizzaService, private pizzaDataSharingService: PizzaDataSharingService) { }
+  constructor(private orderService:OrderService, private pizzaDataSharingService: PizzaDataSharingService) { }
   totalOrderPrice: number=0;
 
   ngOnInit() {
@@ -71,7 +72,9 @@ export class PizzaCartComponent implements OnInit {
 
   chekoutCart()
   {
-
+    let pizzaOrder:PizzaOrder=new PizzaOrder();
+    pizzaOrder.pizzas=this.pizzaCart;
+this.orderService.placeOrder(pizzaOrder);
   }
 
 }

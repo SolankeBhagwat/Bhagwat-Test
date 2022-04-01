@@ -1,12 +1,12 @@
-﻿using PizzaStoreManagement.Common.Entities;
+﻿using System;
+using System.Collections.Generic;
+using PizzaStoreManagement.Common.Entities;
 using PizzaStoreManagement.Repository.Interface;
 using PizzaStoreManagement.Services.Interface;
-using System;
-using System.Collections.Generic;
 
 namespace PizzaStoreManagement.Services
 {
-    public class OrderService: IOrderService
+    public class OrderService : IOrderService
     {
         private readonly IOrderRepository orderRepository;
 
@@ -14,7 +14,6 @@ namespace PizzaStoreManagement.Services
         {
             this.orderRepository = orderRepository;
         }
-
 
         public IEnumerable<Order> GetAllOrders()
         {
@@ -32,12 +31,9 @@ namespace PizzaStoreManagement.Services
         {
             order.CreatedTime = DateTime.Now;
 
-            orderRepository.PlaceOrder(order);
+            orderRepository.PlaceOrder (order);
 
             return order.OrderId;
         }
-
-
-
     }
 }

@@ -1,34 +1,24 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-
 import { Observable, of } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
-
+import { catchError, tap } from "rxjs/operators";
 import { Pizza } from "./pizza";
+import { PizzaOrder } from "./pizza-order";
 
 @Injectable({
   providedIn: "root",
 })
-export class PizzaService {
+export class OrderService {
   private pizzaURL = " http://localhost:5000/api/pizza";
 
   constructor(private http: HttpClient) {}
 
-  searchPizza(term): Observable<Pizza[]> {
-    const options = term
-      ? {
-          params: new HttpParams()
-            .set("init", term[0])
-            .set("base1", term[1])
-            .set("type", term[2]),
-        }
-      : {};
-    return this.http
-      .get<Pizza[]>(this.pizzaURL + "/search-pizza", options)
-      .pipe(
-        tap((_) => this.log(`pizza based on search ${term}`)),
-        catchError(this.handleError<Pizza[]>("searchPizzas", []))
-      );
+  placeOrder(pizzaOrder: PizzaOrder) {
+    const url = this.pizzaURL + "/place-order";
+    this.http.post(url,pizzaOrder).pipe(
+      catchError(this.handleError<Pizza>(`failed to save pizza`))
+    );
+
   }
   getPizza(id: number): Observable<Pizza> {
     const url = this.pizzaURL + "/get-pizza/" + { id };

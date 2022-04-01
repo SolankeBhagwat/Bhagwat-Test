@@ -1,10 +1,12 @@
-﻿using PizzaStoreManagement.Common.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using PizzaStoreManagement.Common.Entities;
 
 namespace PizzaStoreManagement.Repository.Interface
 {
     public interface IPizzaRepository
     {
-        List<Pizza> GetPizzas(string base1, string type);
+        IEnumerable<Pizza> GetPizzas(string base1, string type);
+
+        Pizza GetPizza(int id);
     }
 }

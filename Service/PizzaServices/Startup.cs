@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Security;
+using System.Threading.Tasks;
 using DryIoc;
 using DryIoc.Microsoft.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
@@ -13,10 +17,6 @@ using PizzaStoreManagement.Repository.Interface;
 using PizzaStoreManagement.Repository.Repository;
 using PizzaStoreManagement.Services;
 using PizzaStoreManagement.Services.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PizzaServices
 {
@@ -34,13 +34,24 @@ namespace PizzaServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(x => x.AddPolicy(AllowCorsForPizzaria, builder =>
-            {
-                builder.SetIsOriginAllowed(_ => true).AllowAnyMethod().AllowCredentials().AllowAnyHeader();
-            }));
+            services
+                .AddCors(x =>
+                    x
+                        .AddPolicy(AllowCorsForPizzaria,
+                        builder =>
+                        {
+                            builder
+                                .SetIsOriginAllowed(_ => true)
+                                .AllowAnyMethod()
+                                .AllowCredentials()
+                                .AllowAnyHeader();
+                        }));
 
             services.AddControllers();
-            services.AddDbContext<PizzaDbContext>(options => { });
+            services
+                .AddDbContext<PizzaDbContext>(options =>
+                {
+                });
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPizzaService, PizzaService>();
@@ -58,16 +69,17 @@ namespace PizzaServices
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(AllowCorsForPizzaria);
+            app.UseCors (AllowCorsForPizzaria);
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
         }
     }
 }
