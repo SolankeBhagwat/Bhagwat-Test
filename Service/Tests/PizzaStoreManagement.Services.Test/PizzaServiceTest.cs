@@ -5,6 +5,9 @@ using Xunit;
 using NSubstitute;
 using PizzaStoreManagement.Repository.Interface;
 using PizzaStoreManagement.Services;
+using System.Collections.Generic;
+
+using PizzaStoreManagement.Common.Entities;
 namespace PizzaStoreManagement.Services.Test
 {
     public class PizzaServiceTest
@@ -23,7 +26,7 @@ namespace PizzaStoreManagement.Services.Test
         {
                 //Arrange
                 List<Pizza> pizzas=GetPizzas();
-                pizzaRepository.GetPizzas(Arg.Any<string>(),Arg.Any<string>()).Returns(pizzas);
+                this.pizzaRepository.GetPizzas(Arg.Any<string>(),Arg.Any<string>()).Returns(pizzas);
                 //Act
 
                 //Assert
