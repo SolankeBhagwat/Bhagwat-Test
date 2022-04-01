@@ -5,10 +5,10 @@ namespace PizzaStoreManagement.Repository.Interface
 {
     public interface IOrderRepository
     {
-        Order GetOrder(int orderId);
+        PizzaOrder GetOrder(int orderId);
 
-        IEnumerable<Order> GetAllOrders();
+        IEnumerable<PizzaOrder> GetAllOrders();
 
-        void PlaceOrder(Order order);
+        void PlaceOrder(PizzaOrder pizzaOrder);
     }
 }

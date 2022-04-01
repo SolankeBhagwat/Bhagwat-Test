@@ -5,10 +5,10 @@ namespace PizzaStoreManagement.Services.Interface
 {
     public interface IOrderService
     {
-        IEnumerable<Order> GetAllOrders();
+        IEnumerable<PizzaOrder> GetAllOrders();
 
-        int PlaceOrder(Order order);
+        int PlaceOrder(PizzaOrder pizzaOrder);
 
-        Order GetOrder(int orderId);
+        PizzaOrder GetOrder(int orderId);
     }
 }

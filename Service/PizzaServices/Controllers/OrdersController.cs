@@ -17,7 +17,7 @@ namespace PizzaStoreManagement.API.Controllers
         }
 
         [HttpGet()]
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<PizzaOrder> GetAllOrders()
         {
             var orders = orderService.GetAllOrders();
 
@@ -25,7 +25,7 @@ namespace PizzaStoreManagement.API.Controllers
         }
 
         [HttpGet()]
-        public Order GetOrder(int orderId)
+        public PizzaOrder GetOrder(int orderId)
         {
             var order = orderService.GetOrder(orderId);
 
@@ -33,9 +33,9 @@ namespace PizzaStoreManagement.API.Controllers
         }
 
         [HttpPost("place-order")]
-        public void PlaceOrder(PizzaOrder order)
+        public void PlaceOrder(PizzaOrder pizzaOrder)
         {
-            orderService.PlaceOrder(order);
+            orderService.PlaceOrder(pizzaOrder);
         }
     }
 }

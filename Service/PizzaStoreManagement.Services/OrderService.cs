@@ -15,25 +15,23 @@ namespace PizzaStoreManagement.Services
             this.orderRepository = orderRepository;
         }
 
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<PizzaOrder> GetAllOrders()
         {
             var orders = this.orderRepository.GetAllOrders();
 
             return orders;
         }
 
-        public Order GetOrder(int orderId)
+        public PizzaOrder GetOrder(int orderId)
         {
             return this.orderRepository.GetOrder(orderId);
         }
 
-        public int PlaceOrder(Order order)
+        public int PlaceOrder(PizzaOrder pizzaOrder)
         {
-            order.CreatedTime = DateTime.Now;
+            orderRepository.PlaceOrder (pizzaOrder);
 
-            orderRepository.PlaceOrder (order);
-
-            return order.OrderId;
+            return pizzaOrder.OrderId;
         }
     }
 }

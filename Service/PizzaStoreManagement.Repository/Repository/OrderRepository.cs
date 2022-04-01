@@ -16,35 +16,28 @@ namespace PizzaStoreManagement.Repository.Repository
             this.pizzaDbContext = pizzaDbContext;
         }
 
-        private List<Order>
+        private List<PizzaOrder>
             orders =
-                new List<Order> {
-                    new Order {
-                        OrderId = 1,
-                        Pizzas =
-                            new List<PizzaOrder> {
-                                new PizzaOrder {
-                                    Id = 1,
-                                    OrderId = 1,
-                                    Size = Common.Entities.Enum.PizzaSize.Large
-                                }
-                            }
+                new List<PizzaOrder> {
+                    new PizzaOrder {
+                        Id = 1,
+                        OrderId = 1
                     }
                 };
 
-        public Order GetOrder(int orderId)
+        public PizzaOrder GetOrder(int orderId)
         {
             return orders.FirstOrDefault(x => x.OrderId == orderId);
         }
 
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<PizzaOrder> GetAllOrders()
         {
             return orders;
         }
 
-        public void PlaceOrder(Order order)
+        public void PlaceOrder(PizzaOrder pizzaOrder)
         {
-            orders.Add (order);
+            orders.Add (pizzaOrder);
         }
     }
 }
