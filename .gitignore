@@ -107,3 +107,6 @@ Service/PizzaStoreManagement.Common/obj/Debug/netcoreapp3.1/PizzaStoreManagement
 Service/PizzaStoreManagement.Common/bin/Debug/netcoreapp3.1/PizzaStoreManagement.Common.deps.json
 Service/PizzaStoreManagement.Common/bin/Debug/netcoreapp3.1/PizzaStoreManagement.Common.dll
 Service/PizzaStoreManagement.Common/bin/Debug/netcoreapp3.1/PizzaStoreManagement.Common.pdb
+bin
+obj
+packages
