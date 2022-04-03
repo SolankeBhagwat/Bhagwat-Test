@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using PizzaStoreManagement.Common.Entities;
 using PizzaStoreManagement.Repository.Interface;
@@ -19,9 +20,16 @@ namespace PizzaStoreManagement.Services
 
         public IEnumerable<Pizza> GetPizzas(string base1, string type)
         {
-            var pizzas = this.pizzaRepository.GetPizzas(base1, type);
+            if (!String.IsNullOrEmpty(type))
+            {
+                return this.pizzaRepository.GetAllPizzas()
+                    .Where(x =>
+                        x.Base.ToLower() == base1.Trim('"').ToLower() &&
+                        x.Type.ToLower() == type.Trim('"').ToLower());
+            }
 
-            return pizzas;
+            return this.pizzaRepository.GetAllPizzas()
+                .Where(x => x.Base.ToLower() == base1.Trim('"').ToLower());
         }
 
         public Pizza GetPizza(int id)

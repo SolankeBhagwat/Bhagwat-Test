@@ -205,17 +205,9 @@ namespace PizzaStoreManagement.Repository.Repository
                 };
         }
 
-        public IEnumerable<Pizza> GetPizzas(string base1, string type)
+        public IEnumerable<Pizza> GetAllPizzas()
         {
-            if (!String.IsNullOrEmpty(type))
-            {
-                return Pizzas
-                    .Where(x =>
-                        x.Base.ToLower() == base1.Trim('"').ToLower() &&
-                        x.Type.ToLower() == type.Trim('"').ToLower());
-            }
-            return Pizzas
-                .Where(x => x.Base.ToLower() == base1.Trim('"').ToLower());
+            return Pizzas;
         }
 
         public Pizza GetPizza(int id)
