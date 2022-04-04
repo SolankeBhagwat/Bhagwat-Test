@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreManagement.API", "PizzaStoreManagement.API.csproj", "{97DD9E11-B596-47AD-B78A-ED27E7F68D9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaStoreManagement.API", "PizzaStoreManagement.API.csproj", "{97DD9E11-B596-47AD-B78A-ED27E7F68D9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreManagement.Repository", "..\PizzaStoreManagement.Repository\PizzaStoreManagement.Repository.csproj", "{6F59C9BE-1D57-4CF9-8DD0-EEE8D5901A07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaStoreManagement.Repository", "..\PizzaStoreManagement.Repository\PizzaStoreManagement.Repository.csproj", "{6F59C9BE-1D57-4CF9-8DD0-EEE8D5901A07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreManagement.Services", "..\PizzaStoreManagement.Services\PizzaStoreManagement.Services.csproj", "{39E83DD1-BCE2-4281-ACF8-F1F678EC72FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaStoreManagement.Services", "..\PizzaStoreManagement.Services\PizzaStoreManagement.Services.csproj", "{39E83DD1-BCE2-4281-ACF8-F1F678EC72FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreManagement.Common", "..\PizzaStoreManagement.Common\PizzaStoreManagement.Common.csproj", "{BF96DEAB-073E-472F-AD54-BCB786F57EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaStoreManagement.Common", "..\PizzaStoreManagement.Common\PizzaStoreManagement.Common.csproj", "{BF96DEAB-073E-472F-AD54-BCB786F57EB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaStoreManagement.Services.Test", "..\Tests\PizzaStoreManagement.Services.Test\PizzaStoreManagement.Services.Test.csproj", "{BE51F429-C56F-4760-8D66-C987A8BA2C74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BF96DEAB-073E-472F-AD54-BCB786F57EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF96DEAB-073E-472F-AD54-BCB786F57EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF96DEAB-073E-472F-AD54-BCB786F57EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE51F429-C56F-4760-8D66-C987A8BA2C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE51F429-C56F-4760-8D66-C987A8BA2C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE51F429-C56F-4760-8D66-C987A8BA2C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE51F429-C56F-4760-8D66-C987A8BA2C74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

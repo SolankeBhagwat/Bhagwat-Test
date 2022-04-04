@@ -19,8 +19,7 @@ namespace PizzaStoreManagement.Repository.Repository
         public PizzaRepository(PizzaDbContext pizzaDbContext)
         {
             this.pizzaDbContext = pizzaDbContext;
-            Pizzas =
-                new List<Pizza>()
+            Pizzas = new List<Pizza>()
                 {
                     new Pizza {
                         Id = 1,

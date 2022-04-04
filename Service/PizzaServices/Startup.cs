@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PizzaStoreManagement.API.Middleware;
 using PizzaStoreManagement.Repository.Context;
 using PizzaStoreManagement.Repository.Interface;
 using PizzaStoreManagement.Repository.Repository;
@@ -68,6 +69,10 @@ namespace PizzaServices
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseMiddleware<ErrorWrappingMiddleware>();
             }
             app.UseCors (AllowCorsForPizzaria);
 
